@@ -18,7 +18,7 @@
 
 body {
     margin: 0;
-    padding: 32px 20px;
+    padding: 0;
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     font-family: Arial, Helvetica, sans-serif;
@@ -416,61 +416,93 @@ button:focus-visible {
     background-color: #4b5563;
 }
 
+/* Cabeçalho profissional */
+.header {
+    background: linear-gradient(135deg, #123b63, #176b87);
+    color: #ffffff;
+    padding: 24px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo-text p {
+    margin: 5px 0 0;
+    color: #d6e8f2;
+    font-size: 14px;
+}
+
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #e0f2fe;
+    font-size: 14px;
+}
+
+.status-indicator {
+    width: 9px;
+    height: 9px;
+    background: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+}
+
+@media (max-width: 1024px) {
+    body {padding: 22px 14px;}
+    .header {border-radius: var(--raio)}
+
+    .header-content {justify-content: space-around;}
+}
+
 @media (max-width: 768px) {
-    body {
-        padding: 22px 14px;
-    }
+    h1 {font-size: 25px;}
 
-    h1 {
-        font-size: 25px;
-    }
+    .header-status {display: none;}
 
-    .resumo,
-    .resumo-financeiro,
-    .cards,
-    .cards-resumo {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+    .resumo, .resumo-financeiro, .cards, .cards-resumo {grid-template-columns: 1fr;gap: 14px;}
+    .card,.card-resumo,.resumo-card {padding: 20px;}
+    .card p, .card-resumo p, .resumo-card p {font-size: 23px;}
 
-    .card,
-    .card-resumo,
-    .resumo-card {
-        padding: 20px;
-    }
+    form, .formulario, .grafico-container {padding: 20px;}
 
-    .card p,
-    .card-resumo p,
-    .resumo-card p {
-        font-size: 23px;
-    }
-
-    form,
-    .formulario,
-    .grafico-container {
-        padding: 20px;
-    }
-
-    .grafico {
-        height: 260px;
-    }
+    .grafico {height: 260px;}
 }
 
 @media (max-width: 480px) {
-    .filtro-mes {
-        align-items: stretch;
-        flex-direction: column;
-    }
+    .filtro-mes {align-items: stretch;flex-direction: column;}
+    .filtro-mes input {width: 100%;}
+    .filtro-mes button {width: 100%;}
 
-    .filtro-mes input {
-        width: 100%;
-    }
-
-    .filtro-mes button {
-        width: 100%;
-    }
-
-    #lista-transacoes li {
-        align-items: flex-start;
-    }
+    #lista-transacoes li {align-items: flex-start;}
 }
