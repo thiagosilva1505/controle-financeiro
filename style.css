@@ -1,0 +1,476 @@
+:root {
+    --cor-fundo: #f3f6fb;
+    --cor-cartao: #ffffff;
+    --cor-texto: #1e293b;
+    --cor-texto-secundario: #64748b;
+    --cor-borda: #e2e8f0;
+    --cor-primaria: #2563eb;
+    --cor-primaria-hover: #1d4ed8;
+    --cor-receita: #15976b;
+    --cor-despesa: #dc4c64;
+    --sombra: 0 4px 18px rgba(15, 23, 42, 0.05);
+    --raio: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 32px 20px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+.container,
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 28px;
+}
+
+header p {
+    margin-bottom: 0;
+    color: var(--cor-texto-secundario);
+    font-size: 15px;
+}
+
+/* =========================
+   CARTÕES FINANCEIROS
+========================= */
+
+.resumo,
+.resumo-financeiro,
+.cards,
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.card,
+.card-resumo,
+.resumo-card {
+    min-width: 0;
+    padding: 24px;
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+.card h3,
+.card-resumo h3,
+.resumo-card h3 {
+    margin-bottom: 12px;
+    color: var(--cor-texto-secundario);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card p,
+.card-resumo p,
+.resumo-card p {
+    margin-bottom: 0;
+    font-size: 26px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.receita {color: var(--cor-receita);}
+.despesa {color: var(--cor-despesa);}
+.saldo {color: var(--cor-primaria);}
+    
+/* =========================
+   FORMULÁRIO
+========================= */
+
+section {
+    margin-bottom: 24px;
+}
+
+form,
+.formulario {
+    padding: 25px;
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+form label,
+.formulario label,
+.filtro-mes label {
+    display: block;
+    margin:10px 0 7px;
+    color: var(--cor-texto);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    color: var(--cor-texto);
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+input,
+select,
+button {
+    font-family: inherit;
+}
+
+form button,
+.formulario button {
+    margin-top: 18px;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+    min-height: 40px;
+    padding: 10px 16px;
+    color: #ffffff;
+    background-color: var(--cor-primaria);
+    border: none;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 2px;
+}
+
+/* Botões de exclusão */
+
+#lista-transacoes button {
+    min-height: 34px;
+    padding: 7px 12px;
+    color: var(--cor-despesa);
+    background-color: #fff1f2;
+    font-size: 13px;
+}
+
+#lista-transacoes button:hover {
+    color: #ffffff;
+    background-color: var(--cor-despesa);
+}
+
+#lista-transacoes .botao-editar {
+    color: var(--cor-primaria);
+    background-color: #eff6ff;
+}
+
+#lista-transacoes .botao-editar:hover {
+    color: #ffffff;
+    background-color: var(--cor-primaria);
+}
+
+/* Botão para limpar o filtro */
+
+#limpar-filtro {
+    color: #334155;
+    background-color: #e2e8f0;
+}
+
+#limpar-filtro:hover {
+    background-color: #cbd5e1;
+}
+
+/* =========================
+   GRÁFICO
+========================= */
+
+.grafico-container {
+    padding: 26px;
+    margin: 24px 0;
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+.grafico-container h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.grafico {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 320px;
+    margin: 0 auto;
+}
+
+.grafico canvas {
+    max-width: 100%;
+}
+
+/* =========================
+   FILTRO MENSAL
+========================= */
+
+.filtro-mes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 18px;
+    background-color: #f8fafc;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+}
+
+.filtro-mes label {
+    width: 100%;
+    margin-bottom: -5px;
+}
+
+.filtro-mes input {
+    flex: 1;
+    min-width: 160px;
+    width: auto;
+}
+
+.filtro-mes button {
+    flex-shrink: 0;
+}
+
+/* =========================
+   HISTÓRICO
+========================= */
+
+#lista-transacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#lista-transacoes li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+}
+
+#lista-transacoes li > :first-child {margin-right: auto;}
+
+#lista-transacoes li strong {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.mensagem-vazia {
+    color: var(--cor-texto-secundario);
+    text-align: center;
+}
+
+.campo-radio {
+    margin-bottom: 20px;
+}
+
+.campo-radio > label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--cor-texto);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.opcoes-radio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.opcao-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: #ffffff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.opcao-radio:hover {
+    background-color: #f8fafc;
+    border-color: var(--cor-primaria);
+}
+
+.opcao-radio input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    min-height: auto;
+    margin: 0;
+    accent-color: var(--cor-primaria);
+    cursor: pointer;
+}
+
+.opcao-radio:has(input[type="radio"]:checked) {
+    background-color: #eff6ff;
+    border-color: var(--cor-primaria);
+}
+
+.opcao-radio span {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.botoes-formulario {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#botao-salvar,
+#botao-cancelar-edicao {
+    cursor: pointer;
+}
+
+#botao-cancelar-edicao {
+    background-color: #6b7280;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+#botao-cancelar-edicao:hover {
+    background-color: #4b5563;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 22px 14px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .resumo,
+    .resumo-financeiro,
+    .cards,
+    .cards-resumo {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .card,
+    .card-resumo,
+    .resumo-card {
+        padding: 20px;
+    }
+
+    .card p,
+    .card-resumo p,
+    .resumo-card p {
+        font-size: 23px;
+    }
+
+    form,
+    .formulario,
+    .grafico-container {
+        padding: 20px;
+    }
+
+    .grafico {
+        height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filtro-mes {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .filtro-mes input {
+        width: 100%;
+    }
+
+    .filtro-mes button {
+        width: 100%;
+    }
+
+    #lista-transacoes li {
+        align-items: flex-start;
+    }
+}
