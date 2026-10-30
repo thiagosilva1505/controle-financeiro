@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle Financeiro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-area">
+                <div class="logo-icon"><img src="./logo.png" alt="logo" style="border-radius: 14px;"></div>
+                <div class="logo-text">
+                    <h1>Controle Financeiro</h1>
+                    <p>Organize sua vida financeira</p>
+                </div>
+            </div>
+
+            <div class="header-status">
+                <span class="status-indicator"></span>
+                <span>Seu dinheiro sob controle</span>
+            </div>
+        </div>
+
+    </header>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="resumo">
+
+            <article class="card receita">
+                <h2>Receitas</h2>
+                <p id="total-receitas">R$ 0,00</p>
+            </article>
+
+            <article class="card despesa">
+                <h2>Despesas</h2>
+                <p id="total-despesas">R$ 0,00</p>
+            </article>
+
+            <article class="card saldo">
+                <h2>Saldo disponível</h2>
+                <p id="saldo-total">R$ 0,00</p>
+            </article>
+
+        </section>
+
+        <section class="painel">
+
+            <div class="formulario">
+                <h2>Nova movimentação</h2>
+
+                <form id="form-transacao">
+
+                    <div class="campo">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" id="descricao" placeholder="Ex.: Salário" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="valor">Valor (R$)</label>
+                        <input type="number" id="valor" min="0.01" step="0.01" placeholder="0,00" required>
+                    </div>
+
+                    <div class="campo">
+                        <div class="campo-radio">
+                            <label>Tipo de movimentação</label>
+
+                            <div class="opcoes-radio">
+                                <label class="opcao-radio">
+                                    <input type="radio" name="tipo" value="receita" checked>
+                                    <span>Receita</span>
+                                </label>
+
+                                <label class="opcao-radio">
+                                    <input type="radio" name="tipo" value="despesa">
+                                    <span>Despesa</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <div class="campo-radio">
+                            <label>Categoria</label>
+
+                            <div class="opcoes-radio" id="opcoes-categoria">
+                                <!-- As categorias serão inseridas pelo JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="data">Data da movimentação</label>
+                        <input type="date" id="data" required>
+                    </div>
+
+                    <div class="botoes-formulario">
+                        <button type="submit" id="botao-salvar">
+                            Adicionar transação
+                        </button>
+
+                        <button type="button" id="botao-cancelar-edicao" hidden>
+                            Cancelar edição
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <section class="grafico-container">
+                <h2>Receitas x Despesas</h2>
+
+                <div class="grafico">
+                    <canvas id="grafico-financeiro"></canvas>
+                </div>
+            </section>
+
+
+            <div class="historico">
+                <h2>Histórico de movimentações</h2>
+
+                <div class="filtro-mes">
+                    <label for="filtro-mes">Filtrar por mês:</label>
+                    <input type="month" id="filtro-mes">
+                    <button type="button" id="limpar-filtro">
+                        Limpar filtro
+                    </button>
+                </div>
+
+                <ul id="lista-transacoes">
+                    <li class="mensagem-vazia">
+                        Nenhuma movimentação cadastrada.
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
