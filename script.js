@@ -52,6 +52,16 @@ botaoLimparFiltro.addEventListener("click", function () {
 
 let transacoes = [];
 
+function preencherDataHoje() {
+    const hoje = new Date();
+
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoje.getDate()).padStart(2, "0");
+
+    data.value = `${ano}-${mes}-${dia}`;
+}
+
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -96,6 +106,7 @@ formulario.addEventListener("submit", function (event) {
     botaoSalvar.textContent = "Adicionar transação";
     botaoCancelarEdicao.hidden = true;
 
+    preencherDataHoje();
     atualizarCategorias();
     atualizarSistema();
 });
@@ -418,4 +429,5 @@ function atualizarCategorias() {
 }
 
 atualizarCategorias();
+preencherDataHoje();
 carregarTransacoes();
