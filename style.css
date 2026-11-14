@@ -406,7 +406,6 @@ button:focus-visible {
     align-items: center;
     gap: 8px;
     min-height: 40px;
-    margin-left: auto;
     color: #f8fafc;
     background: rgba(255, 255, 255, 0.14);
     border: 1px solid rgba(255, 255, 255, 0.28);
@@ -428,7 +427,7 @@ button:focus-visible {
     body {padding: 22px 14px;}
     .header {border-radius: var(--raio)}
 
-    .header-content {justify-content: space-between;}
+    .header-content {justify-content: space-around;}
 }
 
 @media (max-width: 768px) {
@@ -456,6 +455,7 @@ button:focus-visible {
 }
 
 @media (max-width: 480px) {
+    .header-content {flex-direction: column;}
     .filtro-mes {align-items: stretch;flex-direction: column;}
     .filtro-mes input {width: 100%;}
     .filtro-mes button {width: 100%;}
